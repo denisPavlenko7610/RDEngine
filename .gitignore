@@ -1,4 +1,8 @@
-﻿# Ignore Rider IDE files
+﻿Debug/
+glfw/
+
+
+# Ignore Rider IDE files
 .idea/
 *.iml
 .idea/**/workspace.xml
