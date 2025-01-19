@@ -1,4 +1,6 @@
-﻿#include <GLFW/glfw3.h>
+﻿#include <cstdio>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
 int main()
 {
@@ -19,11 +21,21 @@ int main()
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
 
+    if (!gladLoadGL())
+    {
+        printf("Error loading glad\n");
+        return -1;
+    }
+
+    printf("Opengl version: %s\n", glGetString(GL_VERSION));
+
+    glClearColor(0,1,1,1);
+    
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
         /* Render here */
-        // glClear(GL_COLOR_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT);
 
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
