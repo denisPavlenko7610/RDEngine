@@ -4,7 +4,10 @@ set(PROJECT_NAME RDEngine)
 project(${PROJECT_NAME})
 
 set(CMAKE_CXX_STANDARD 20)
-add_executable(${PROJECT_NAME} src/main.cpp)
+
+file(GLOB_RECURSE SOURCE_FILES CONFIGURE_DEPENDS src/*.cpp src/*.c src/*.h src/*.hpp)
+
+add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
